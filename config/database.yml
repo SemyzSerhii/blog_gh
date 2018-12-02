@@ -7,8 +7,8 @@ default: &default
   password: password
 development:
   <<: *default
-  database: blog_gh_dev
+  database: blogs_dev
 
 production:
   <<: *default
-  database: blog_gh_prod
+  database: blogs_prod
