@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: %i[show edit update destroy]
+
   def index
     @posts = Post.all
   end
@@ -12,7 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(posts_params)
     if @post.save
-      redirect_to({ action: :index }, notice: 'Post was successfully saved!')
+      redirect_to({ action: :index }, notice: t('controllers.post.create.success'))
     else
       render :new
     end
@@ -22,7 +24,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(posts_params)
-      redirect_to({ action: :index }, notice: 'Post was successfully updated!')
+      redirect_to({ action: :index }, notice: t('controllers.post.update.success'))
     else
       render :edit
     end
@@ -30,16 +32,21 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to({ action: :index }, notice: 'Post was successfully deleted!')
+      redirect_to({ action: :index }, notice: t('controllers.post.destroy.success'))
     else
-      redirect_to({ action: :index }, notice: 'Post was not deleted!')
+      redirect_to({ action: :index }, notice: t('controllers.post.destroy.errors'))
     end
   end
 
   private
 
+  def find_post
+    @post = Post.find(params[:id])
+  end
+
   def posts_params
     params.require(:post).permit(
-      :title, :body)
+      :title, :body, cover_attributes: %i[id file]
+    )
   end
 end

@@ -13,7 +13,7 @@
       <small id="bodyHelp" class="form-text text-danger">
         <%= @post.errors[:body].join(', ') %>
       </small>
-      <%= f.submit 'Save', class: 'btn btn-success' %>
+      <%= f.submit t('views.post._form.submit.save'), class: 'btn btn-success' %>
   <%end %>
   </div>
 </div>
