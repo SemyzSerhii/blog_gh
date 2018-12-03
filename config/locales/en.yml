@@ -24,6 +24,7 @@ en:
           _navbar:
             links:
               posts: "Posts"
-              new: "New Posts"
+              new_post: "New Posts"
+              sign_up: "Sign Up"
 
 
