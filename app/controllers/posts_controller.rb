@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(posts_params)
+    @post = current_user.posts.build(posts_params)
     if @post.save
       redirect_to({ action: :index }, notice: t('controllers.post.create.success'))
     else
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
   def posts_params
     params.require(:post).permit(
-      :title, :body, cover_attributes: %i[id file]
+      :title, :body, cover_attributes: %i[id url]
     )
   end
 end
