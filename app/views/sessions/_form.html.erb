@@ -1,0 +1,19 @@
+<div class= "center">
+  <h1 class="sign_up"> Log In</h1>
+  <%= form_tag sessions_path do %>
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= label_tag :username, "Username" ,class: "user_save"  %><br />
+        <%= text_field_tag :username , params[:username],  required: true, class: "form-control" , placeholder: "Enter Your Username"%>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">
+        <%= label_tag :password, "Password", class:"but_password_save" %><br />
+        <%= password_field_tag :password, params[:password],  required: true, class: "form-control",  placeholder: "Enter Your Password"  %>
+      </div>
+    </div>
+    <div class="but_data_save2 "><button type="submit" class="btn btn-primary col-md-3">Login</button></div>
+  <% end %>
+</div>

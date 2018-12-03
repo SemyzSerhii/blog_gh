@@ -1,0 +1,32 @@
+<!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <%= link_to t('views.navbar._navbar.links.posts'), root_path, class: 'nav-link' %>
+    </li>
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to t('views.navbar._navbar.links.new_post'), new_posts_path, class: 'nav-link' %>
+      </li>
+     <% end %>
+  </ul>
+  <div id="user_nav " class=" wight_log_sign">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="logged">
+          Logged in as <%= current_user.username %>.
+        </li>
+        <li class="nav-item">
+          <%= link_to t('views.navbar._navbar.links.sign_out'), log_out_path, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to t('views.navbar._navbar.links.sign_in'), new_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('views.navbar._navbar.links.sign_up'), new_user_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
