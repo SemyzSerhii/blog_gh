@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
-      redirect_to root_path, notice: 'Signed up!'
+      redirect_to root_path, notice: t('controllers.user.create.success')
     else
       render :new
     end

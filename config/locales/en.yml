@@ -8,6 +8,16 @@ en:
       destroy:
         success: "Post was successfully deleted!"
         errors: "Post was not deleted!"
+    user:
+      create:
+        success: "Signed up!"
+    session:
+      create:
+        success: "Signed In!"
+        errors: "Signed not In!"
+      destroy:
+        success: "Good bye)"
+
   views:
     post:
       _form:
@@ -21,10 +31,18 @@ en:
           edit: "Edit"
           destroy: "Delete"
     navbar:
-          _navbar:
-            links:
-              posts: "Posts"
-              new_post: "New Posts"
-              sign_up: "Sign Up"
+      _navbar:
+        links:
+          posts: "Posts"
+          new_post: "New Posts"
+          sign_up: "Sign Up"
+          sign_in: "Sign In"
+          sign_out: "Sign Out"
+    session:
+      _form:
+        submit: "Login"
+
+
+
 
 
