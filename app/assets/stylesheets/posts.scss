@@ -2,13 +2,10 @@
 .dist_posts {
   display: flex;
   margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 37%;
+  margin-left: 37%;
+  margin-right: 10%;
 }
 
-.card {
-  max-width: 370px;
-}
 
 .raz {
   padding: 0;
@@ -16,7 +13,14 @@
   text-align: center;
   background: #FFF5D7;
   opacity: .7;
+}
 
+.form-control2 {
+  width: 50%;
+}
+
+.dist_posts_show {
+  margin: 3%;
 
 }
 
