@@ -2,7 +2,8 @@
   <%= form_for @post do |f| %>
     <div class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title, required: true, class: 'form-control raz', style: 'border-radius: 1rem; width: 50%' %>
+      <%= f.text_field :title, required: true, class: 'form-control raz',
+        style: 'border-radius: 1rem; width: 50%' %>
       <small id="titleHelp" class="form-text text-danger">
         <%= @post.errors[:title].join(', ') %>
       </small>
@@ -10,7 +11,7 @@
     <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body, size: '60x12', required: true, class: 'form-control raz',
-        style: 'border-radius: 1rem; width: 50%' %>
+        style: 'border-radius: 1rem; width: 50%; text-align: left' %>
       <small id="bodyHelp" class="form-text text-danger">
         <%= @post.errors[:body].join(', ') %>
       </small>

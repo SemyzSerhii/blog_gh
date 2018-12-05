@@ -1,0 +1,13 @@
+<div class="container " style="padding-left: 23rem; margin-top: 10rem">
+  <%= form_for @comment do |f| %>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, size: '60x12', required: true, class: 'form-control raz',
+        style: 'border-radius: 1rem; width: 50%' %>
+      <small id="bodyHelp" class="form-text text-danger">
+        <%= @comment.errors[:body].join(', ') %>
+      </small>
+      <%= f.submit t('views.post._form.submit.save'), class: 'btn btn-success', style: 'border-radius: 1rem'%>
+  <%end %>
+  </div>
+</div>

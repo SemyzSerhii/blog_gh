@@ -30,6 +30,7 @@ en:
         links:
           edit: "Edit"
           destroy: "Delete"
+          add_comment: "Add Comment"
     navbar:
       _navbar:
         links:

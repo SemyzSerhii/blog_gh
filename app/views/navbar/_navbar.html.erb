@@ -1,32 +1,57 @@
 <!-- Grey with black text -->
 <nav class=" color_green navbar navbar-expand-sm bg-dark navbar-dark " style="width: 100%">
-  <ul class="navbar-nav">
+  <ul class="navbar-nav" style="width: 100%">
     <li class="nav-item">
+      <div class="foo">
+      <span class="letter" data-letter="Posts">
       <%= link_to t('views.navbar._navbar.links.posts'), root_path, class: 'nav-link ', style: 'color: teal' %>
+      </span>
+      </div>
     </li>
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to t('views.navbar._navbar.links.new_post'), new_posts_path, class: 'nav-link', style: 'color: teal'  %>
+        <div class="foo">
+      <span class="letter" data-letter="New Posts">
+        <%= link_to t('views.navbar._navbar.links.new_post'), new_post_path, class: 'nav-link', style: 'color: teal; width: 142px'  %>
+      </span>
+        </div>
       </li>
-     <% end %>
+    <% end %>
+    <div id="user_nav " class=" wight_log_sign" >
+      <div class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="logged" style="text-align: right">
+            Logged in as <%= current_user.username %>.
+          </li>
+          <div class="nav-item">
+            <li>
+              <div class="foo">
+               <span class="letter" data-letter="Sign Out">
+                 <%= link_to t('views.navbar._navbar.links.sign_out'), log_out_path, class: 'nav-link',
+                   style: 'color: teal; text-align: right; width: 118px ' %>
+               </span>
+              </div>
+            </li>
+        <% else %>
+          <li class="nav-item">
+            <div class="foo">
+              <span class="letter" data-letter="Sign In">
+                <%= link_to t('views.navbar._navbar.links.sign_in'), new_session_path, class: 'nav-link',
+                  style: 'color: teal; text-align: right;  width: 97px '  %>
+              </span>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="foo">
+               <span class="letter" data-letter="Sign Up">
+                 <%= link_to t('views.navbar._navbar.links.sign_up'), new_user_path, class: 'nav-link',
+                   style: 'color: teal; text-align: right;  width: 107px '  %>
+               </span>
+            </div>
+          </li>
+        <% end %>
+        </div>
+      </div>
+    </div>
   </ul>
-  <div id="user_nav " class=" wight_log_sign">
-    <ul class="navbar-nav">
-      <% if user_signed_in? %>
-        <li class="logged">
-          Logged in as <%= current_user.username %>.
-        </li>
-        <li class="nav-item">
-          <%= link_to t('views.navbar._navbar.links.sign_out'), log_out_path, class: 'nav-link', style: 'color: teal' %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to t('views.navbar._navbar.links.sign_in'), new_session_path, class: 'nav-link', style: 'color: teal'  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('views.navbar._navbar.links.sign_up'), new_user_path, class: 'nav-link', style: 'color: teal'  %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
 </nav>
