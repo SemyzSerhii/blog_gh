@@ -3,16 +3,16 @@
   <ul class="navbar-nav" style="width: 100%">
     <li class="nav-item">
       <div class="foo">
-      <span class="letter" data-letter="Posts">
-      <%= link_to t('views.navbar._navbar.links.posts'), root_path, class: 'nav-link ', style: 'color: teal' %>
+      <span class="letter" data-letter="Posts" style="width: 73px">
+      <%= link_to t('views.navbar._navbar.links.posts'), root_path, style: 'color: teal; text-decoration: none' %>
       </span>
       </div>
     </li>
     <% if user_signed_in? %>
       <li class="nav-item">
         <div class="foo">
-      <span class="letter" data-letter="New Posts">
-        <%= link_to t('views.navbar._navbar.links.new_post'), new_post_path, class: 'nav-link', style: 'color: teal; width: 142px'  %>
+      <span class="letter" data-letter="New Posts" style="width: 126px">
+        <%= link_to t('views.navbar._navbar.links.new_post'), new_post_path, style: 'color: teal; text-decoration: none' %>
       </span>
         </div>
       </li>
@@ -26,26 +26,26 @@
           <div class="nav-item">
             <li>
               <div class="foo">
-               <span class="letter" data-letter="Sign Out">
-                 <%= link_to t('views.navbar._navbar.links.sign_out'), log_out_path, class: 'nav-link',
-                   style: 'color: teal; text-align: right; width: 118px ' %>
+               <span class="letter" data-letter="Sign Out" style="width: 103px">
+                 <%= link_to t('views.navbar._navbar.links.sign_out'), log_out_path,
+                   style: 'color: teal; text-align: right; text-decoration: none' %>
                </span>
               </div>
             </li>
         <% else %>
           <li class="nav-item">
             <div class="foo">
-              <span class="letter" data-letter="Sign In">
-                <%= link_to t('views.navbar._navbar.links.sign_in'), new_session_path, class: 'nav-link',
-                  style: 'color: teal; text-align: right;  width: 97px '  %>
+              <span class="letter" data-letter="Sign In" style="width: 83px">
+                <%= link_to t('views.navbar._navbar.links.sign_in'), new_session_path,
+                  style: 'color: teal; text-align: right; text-decoration: none'  %>
               </span>
             </div>
           </li>
           <li class="nav-item">
             <div class="foo">
-               <span class="letter" data-letter="Sign Up">
-                 <%= link_to t('views.navbar._navbar.links.sign_up'), new_user_path, class: 'nav-link',
-                   style: 'color: teal; text-align: right;  width: 107px '  %>
+               <span class="letter" data-letter="Sign Up" style="width: 93px">
+                 <%= link_to t('views.navbar._navbar.links.sign_up'), new_user_path,
+                   style: 'color: teal; text-align: right; text-decoration: none'  %>
                </span>
             </div>
           </li>
