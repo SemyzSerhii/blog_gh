@@ -7,19 +7,8 @@
   <div class="card-body">
     <h2 class="card-text" style="font-size: 1.25rem"><%= @post.title %></h2>
     <p class="card-text" style="font-size: 1rem; text-align: left"><%= @post.body %></p>
-<div class="container " style=" margin-top: 10rem">
-  <%= form_for Comment.new do |f| %>
-    <div class="form-group">
-      <%= f.text_area :body, size: '200x12', required: true, class: 'form-control raz',
-        style: 'border-radius: 1rem; width: 100%; background-color: gray; text-align: left' %>
-      <small id="bodyHelp" class="form-text text-danger">
-        <%= Comment.new.errors[:body].join(', ') %>
-      </small>
-      <%= f.submit t('views.post.show.links.add_comment'), class: 'btn btn-success', style: 'border-radius: 1rem'%>
-  <%end %>
-  </div>
-</div>
     <div class="d-flex justify-content-between align-items-center">
+      <%= render 'comments/new.html.erb' %>
       <div class="btn-group">
         <%= link_to t('views.post.show.links.destroy'), post_path(@post), method: :delete, confir: 'Are you sure?',
           class:"btn btn-sm btn-outline-secondary", style: 'color:black; border-radius: 1rem'%>
