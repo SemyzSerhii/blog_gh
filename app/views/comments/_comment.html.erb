@@ -1,8 +1,6 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <% if user_signed_in? %>
-    <h1 class="display-4">%= current_user.username %></h1>
-    <%end %>
+    <h1 class="display-4"><%= comment.user.username %></h1>
     <p class="lead"><%= comment.body %></p>
   </div>
 </div>
