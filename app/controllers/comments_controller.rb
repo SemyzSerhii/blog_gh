@@ -1,13 +1,8 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: %i[update destroy]
 
-  def index
+  def _index
     @comments = Comment.all
-  end
-
-
-  def new
-    @comment = Comment.new
   end
 
   def create
@@ -16,15 +11,15 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update_attributes(comments_params)
-      redirect_to({ action: :index })
+      redirect_to({ action: :_index })
     end
   end
 
   def destroy
     if @post.destroy
-      redirect_to({ action: :index })
+      redirect_to({ action: :_index })
     else
-      redirect_to({ action: :index })
+      redirect_to({ action: :_index })
     end
   end
 

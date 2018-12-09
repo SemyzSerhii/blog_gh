@@ -3,7 +3,7 @@
     <div class="form-group">
       <%= f.label :title %>
       <%= f.text_field :title, required: true, class: 'form-control raz',
-        style: 'border-radius: 1rem; width: 50%' %>
+        style: 'border-radius: 1rem; width: 50%; text-align: left' %>
       <small id="titleHelp" class="form-text text-danger">
         <%= @post.errors[:title].join(', ') %>
       </small>
