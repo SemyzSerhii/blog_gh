@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   before_save :encrypt_password, if: -> { password.present? }
 
-  def self.authenticate(username, password)
-    user = find_by(username: username)
+  def self.authenticate(email, password)
+    user = find_by(email: email)
 
     user if user&.correct_password?(password)
   end

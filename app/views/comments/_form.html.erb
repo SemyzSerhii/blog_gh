@@ -6,6 +6,7 @@
       <small id="bodyHelp" class="form-text text-danger">
         <%= Comment.new .errors[:body].join(', ') %>
       </small>
+      <%= f.hidden_field :post_id, value: @post.id %>
       <%= f.submit t('views.post.show.links.add_comment'), class: 'btn btn-success', style: 'border-radius: 1rem'%>
   <%end %>
   </div>

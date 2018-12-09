@@ -34,8 +34,8 @@ div.foo{
   position: relative;
   color: #00B4F1;
   transform-style: preserve-3d;
-  perspective: 400;
   z-index: 1;
+  cursor: pointer
 }
 .letter:before, .letter:after{
   position:absolute;
