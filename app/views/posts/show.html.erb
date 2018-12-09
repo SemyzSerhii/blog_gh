@@ -7,17 +7,20 @@
   <div class="card-body">
     <h2 class="card-text" style="font-size: 1.25rem"><%= @post.title %></h2>
     <p class="card-text" style="font-size: 1rem; text-align: left"><%= @post.body %></p>
+    <%= render 'comments/new' %>
+    <%= render 'comments/index' %>
     <div class="d-flex justify-content-between align-items-center">
-      <%= render 'comments/new.html.erb' %>
       <div class="btn-group">
         <%= link_to t('views.post.show.links.destroy'), post_path(@post), method: :delete, confir: 'Are you sure?',
           class:"btn btn-sm btn-outline-secondary", style: 'color:black; border-radius: 1rem'%>
         <%= link_to t('views.post.show.links.edit'), edit_post_path(@post), class:"btn btn-sm btn-outline-secondary",
           style: 'color:black; border-radius: 1rem'%>
       </div>
-        <% if user_signed_in? %>
-          <p class="card-text" style="font-size: 1.25rem; text-align: right; padding-right: 1.5rem"><%= current_user.username %></p>
-        <%end %>
+      <% if user_signed_in? %>
+        <p class="card-text" style="font-size: 1.25rem; text-align: right; padding-right: 1.5rem">
+          <%= current_user.username %>
+        </p>
+      <%end %>
     </div>
   </div>
 </div>
