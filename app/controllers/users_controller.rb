@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[show edit update destroy]
 
+  def index
+    @users = User.all
+  end
+
   def posts
     if current_user
       @posts = User.find(current_user.id).posts

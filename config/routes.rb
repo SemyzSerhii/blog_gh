@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  
+
   get :log_out, to: 'sessions#destroy'
+  get :users, to: 'users#index'
 
   resources :users, except: :index do
     member do
