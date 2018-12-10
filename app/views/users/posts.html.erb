@@ -1,0 +1,24 @@
+<% if @posts.empty? %>
+  <p>No posts</p>
+  <%= link_to 'New post', new_post_path %>
+<% else %>
+  <% @posts.each do |post| %>
+    <div class="card dist_posts raz" style="border-radius:1.25rem; max-width: 365px;">
+      <% if post.cover.present? %>
+        <%= image_tag post.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
+          style: 'width: 300px; height: 250px' %>
+      <% end %>
+      <div class="card-body">
+        <h2 class="card-text" style="font-size: 1.25rem"><%= post.title %></h2>
+        <p class="card-text" style="font-size: 1rem; text-align: left"><%= post.body[0..100] %></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <%= link_to t('views.post._post.links.open'), post, class:"btn btn-sm btn-outline-secondary", style: 'color:black; border-radius: 1rem'%>
+          </div>
+          <p class="card-text" style="font-size: 1.25rem;  text-align: right; padding-right: 1rem"><%= post.user.username %></p>
+        </div>
+      </div>
+    </div>
+
+  <%end %>
+<%end %>

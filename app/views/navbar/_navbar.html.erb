@@ -8,6 +8,13 @@
       </span>
       </div>
     </li>
+    <li class="nav-item">
+      <div class="foo">
+      <span class="letter" data-letter="Users" style="width: 73px" onclick="location.href= '<%= users_path%>'">
+      <%= link_to t('views.navbar._navbar.links.users'), users_path, style: 'color: teal; text-decoration: none' %>
+      </span>
+      </div>
+    </li>
     <% if user_signed_in? %>
       <li class="nav-item">
         <div class="foo">
@@ -21,7 +28,7 @@
       <div class="navbar-nav">
         <% if user_signed_in? %>
           <li class="logged" style="text-align: right">
-            Logged in as <%= current_user.username %>.
+            <%= link_to current_user.username , user_path(current_user), style: 'color: teal; text-decoration: none' %>
           </li>
           <div class="nav-item">
             <li>

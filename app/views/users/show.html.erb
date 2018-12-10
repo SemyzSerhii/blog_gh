@@ -1,0 +1,15 @@
+<div class="card mb-4 shadow-sm dist_posts_show" style="border-radius: 1.5rem; width: 500px; height: 500px" >
+  <% if @user.cover.present? %>
+    <%= image_tag @user.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
+      style: ' padding-left: 5%; padding-right: 5%; height: 420px; padding-top: 5%; border-radius: 1.5rem' %>
+  <% end %>
+
+    <h2 class="card-text" style="text-align: center" ><%= @user.username %></h2>
+
+
+  <div class="btn-group">
+    <%= link_to t('views.user.show.links.my_posts'), posts_user_path(@user.posts), class:"btn btn-sm btn-outline-secondary",
+      style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px'%>
+  </div>
+</div>
+
