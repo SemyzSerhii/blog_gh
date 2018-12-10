@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_one :cover, as: :imageable, class_name: 'Image', dependent: :destroy
+  accepts_nested_attributes_for :cover
+
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true, email: true
   validates :password, length: { minimum: 6 }, presence: true

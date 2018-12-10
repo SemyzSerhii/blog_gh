@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[show edit update destroy]
 
+  def posts
+    if current_user
+      @posts = User.find(current_user.id).posts
+    else
+      redirect_to root_path
+    end
+  end
+
   def show; end
 
   def new
@@ -24,6 +32,6 @@ class UsersController < ApplicationController
 
 
   def users_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, cover_attributes: %i[id url])
   end
 end

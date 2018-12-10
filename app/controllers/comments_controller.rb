@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: %i[ destroy ]
-  respond_to :html, :json
 
   def create
       current_user.comments.create(comments_params)

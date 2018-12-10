@@ -1,5 +1,14 @@
 <div class="container " style="padding-left: 23rem; margin-top: 10rem">
   <%= form_for @post do |f| %>
+        <div>
+        <%= f.fields_for :cover, @post.build_cover do |ff| %>
+          <%= ff.label :url, 'Image' %>
+          <%= ff.file_field :url %>
+        </div>
+          <small id="bodyHelp" class="form-text text-danger">
+            <%= @post.errors['cover.url'].join(', ') %>
+          </small>
+        <% end %>
     <div class="form-group">
       <%= f.label :title %>
       <%= f.text_field :title, required: true, class: 'form-control raz',

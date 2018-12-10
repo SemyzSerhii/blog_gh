@@ -42,6 +42,10 @@ en:
     session:
       _form:
         submit: "Login"
+    user:
+      show:
+        links:
+          my_posts: "My Posts"
 
 
 
