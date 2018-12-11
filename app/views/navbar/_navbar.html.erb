@@ -32,12 +32,17 @@
     <div id="user_nav " class=" wight_log_sign" >
       <div class="navbar-nav">
         <% if user_signed_in? %>
-              <%= form_for current_user do %>
+          <%= form_for current_user do %>
             <% if current_user.cover.present? %>
-              <a href="<%=user_path(current_user) %>" >  <%= image_tag current_user.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
-                style: 'width: 50px; height: 50px; border-radius: 100%; margin-right: 10px' %> </a>
-              <%end %>
+              <a href="<%=user_path(current_user) %>" >  <%= image_tag current_user.cover.url.url, alt: 'Image',
+                class: 'card-img-top', target: '_blank',
+                style: 'width: 50px; height: 50px; border-radius: 100%; margin-right: 10px' %>
+            <% else %>
+              <%= image_tag 'https://www.exactax.com/track/img/hr.png', alt: 'Image', class: 'card-img-top',
+                target: '_blank', style: 'width: 50px; height: 50px; border-radius: 100%; margin-right: 10px' %>
+              </a>
             <%end %>
+          <%end %>
           <li class="logged" style="text-align: right">
             <%= link_to current_user.username , user_path(current_user),class: 'sign__word',  style: ' text-decoration: none' %>
           </li>
