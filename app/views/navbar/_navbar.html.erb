@@ -1,25 +1,30 @@
 <!-- Grey with black text -->
-<nav class=" color_green navbar navbar-expand-sm bg-dark navbar-dark " style="width: 100%">
+<nav class="navbar navbar-expand-sm bg navbar-dark shadows" style="width: 100%; ">
   <ul class="navbar-nav" style="width: 100%">
+    <div class="sign">
+      <%= link_to 'Online newspaper', root_path, class: 'sign__word', style: ' text-decoration: none; padding-right: 2rem' %>
+
+    </div>
+
     <li class="nav-item">
       <div class="foo">
-      <span class="letter" data-letter="Posts" style="width: 73px" onclick="location.href= '<%= root_path%>'">
-      <%= link_to t('views.navbar._navbar.links.posts'), root_path, style: 'color: teal; text-decoration: none' %>
+      <span class="letter" data-letter="News" style="width: 55px" onclick="location.href= '<%= root_path%>'">
+      <%= link_to t('views.navbar._navbar.links.posts'), root_path, style: ' text-decoration: none' %>
       </span>
       </div>
     </li>
     <li class="nav-item">
       <div class="foo">
-      <span class="letter" data-letter="Users" style="width: 73px" onclick="location.href= '<%= users_path%>'">
-      <%= link_to t('views.navbar._navbar.links.users'), users_path, style: 'color: teal; text-decoration: none' %>
+      <span class="letter" data-letter="Users" style="width: 59px" onclick="location.href= '<%= users_path%>'">
+      <%= link_to t('views.navbar._navbar.links.users'), users_path, style: ' text-decoration: none' %>
       </span>
       </div>
     </li>
     <% if user_signed_in? %>
       <li class="nav-item">
         <div class="foo">
-      <span class="letter" data-letter="New Posts" style="width: 126px" onclick="location.href= '<%= new_post_path%>'">
-        <%= link_to t('views.navbar._navbar.links.new_post'), new_post_path, style: 'color: teal; text-decoration: none' %>
+      <span class="letter" data-letter="New News" style="width: 105px" onclick="location.href= '<%= new_post_path%>'">
+        <%= link_to t('views.navbar._navbar.links.new_post'), new_post_path, style: ' text-decoration: none' %>
       </span>
         </div>
       </li>
@@ -27,32 +32,43 @@
     <div id="user_nav " class=" wight_log_sign" >
       <div class="navbar-nav">
         <% if user_signed_in? %>
+          <%= form_for current_user do %>
+            <% if current_user.cover.present? %>
+              <a href="<%=user_path(current_user) %>" >  <%= image_tag current_user.cover.url.url, alt: 'Image',
+                class: 'card-img-top', target: '_blank',
+                style: 'width: 50px; height: 50px; border-radius: 100%; margin-right: 10px' %>
+            <% else %>
+              <%= image_tag 'https://www.exactax.com/track/img/hr.png', alt: 'Image', class: 'card-img-top',
+                target: '_blank', style: 'width: 50px; height: 50px; border-radius: 100%; margin-right: 10px' %>
+              </a>
+            <%end %>
+          <%end %>
           <li class="logged" style="text-align: right">
-            <%= link_to current_user.username , user_path(current_user), style: 'color: teal; text-decoration: none' %>
+            <%= link_to current_user.username , user_path(current_user),class: 'sign__word',  style: ' text-decoration: none' %>
           </li>
           <div class="nav-item">
             <li>
               <div class="foo">
-               <span class="letter" data-letter="Sign Out" style="width: 103px" onclick="location.href= '<%= log_out_path%>'">
+               <span class="letter" data-letter="Sign Out" style="width: 90px" onclick="location.href= '<%= log_out_path%>'">
                  <%= link_to t('views.navbar._navbar.links.sign_out'), log_out_path,
-                   style: 'color: teal; text-align: right; text-decoration: none' %>
+                   style: ' text-align: right; text-decoration: none' %>
                </span>
               </div>
             </li>
         <% else %>
           <li class="nav-item">
             <div class="foo">
-              <span class="letter" data-letter="Sign In" style="width: 83px" onclick="location.href= '<%= new_session_path%>'">
+              <span class="letter" data-letter="Sign In" style="width: 76px" onclick="location.href= '<%= new_session_path%>'">
                 <%= link_to t('views.navbar._navbar.links.sign_in'), new_session_path,
-                  style: 'color: teal; text-align: right; text-decoration: none'  %>
+                  style: ' text-align: right; text-decoration: none'  %>
               </span>
             </div>
           </li>
           <li class="nav-item">
             <div class="foo">
-               <span class="letter" data-letter="Sign Up" style="width: 93px" onclick="location.href= '<%= new_user_path%>'">
+               <span class="letter" data-letter="Sign Up" style="width: 84px" onclick="location.href= '<%= new_user_path%>'">
                  <%= link_to t('views.navbar._navbar.links.sign_up'), new_user_path,
-                   style: 'color: teal; text-align: right; text-decoration: none'  %>
+                   style: ' text-align: right; text-decoration: none'  %>
                </span>
             </div>
           </li>

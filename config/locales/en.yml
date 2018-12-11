@@ -34,9 +34,9 @@ en:
     navbar:
       _navbar:
         links:
-          posts: "Posts"
+          posts: "News"
           users: "Users"
-          new_post: "New Posts"
+          new_post: "New News"
           sign_up: "Sign Up"
           sign_in: "Sign In"
           sign_out: "Sign Out"
@@ -46,7 +46,7 @@ en:
     user:
       show:
         links:
-          my_posts: "Posts"
+          my_posts: "News"
 
 
 

@@ -4,13 +4,28 @@
 }
 
 .logged {
-  padding-top: 9px;
+  padding-top: 6px;
   padding-right: 10px;
 }
 
+.bg {
+  background-color: #c3c4c5!important ;
+}
 
-.color_green {
-  color: darkolivegreen;
+.shadows {
+  box-shadow: 0px 10px 13px 5px #000000;
+}
+
+.title {
+  text-shadow: -1px -1px #000,
+  0 1px 0 #444;
+  color: #222;
+  transition: all 1s;
+}
+.title:hover {
+  text-shadow: -1px -1px #000,
+  0 1px 0 #444;
+  color: #1A1A1A;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato:900);
@@ -82,4 +97,61 @@ div.foo{
     rotateY(40deg)
     rotateZ(0deg)
     skew(0deg,22deg);
+}
+
+
+
+nav {
+  font-family: "Vibur", cursive;
+  font-size: 1rem;
+  background-image: url("https://www.dropbox.com/s/2ct0i6kc61vp0bh/wall.jpg?raw=1");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #141414;
+}
+
+
+/*-- Sign Styles --*/
+
+.sign {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__word {
+    font-size: 2.0rem;
+    text-align: center;
+    line-height: 1;
+    color: #c6e2ff;
+    animation: neon .08s ease-in-out infinite alternate;
+  }
+
+}
+
+/*-- Animation Keyframes --*/
+
+// animation
+
+@keyframes neon {
+  from {
+    text-shadow:
+      0 0 6px rgba(202,228,225,0.92),
+      0 0 30px rgba(202,228,225,0.34),
+      0 0 12px rgba(30,132,242,0.52),
+      0 0 21px rgba(30,132,242,0.92),
+      0 0 34px rgba(30,132,242,0.78),
+      0 0 54px rgba(30,132,242,0.92);
+  }
+  to {
+    text-shadow:
+      0 0 6px rgba(202,228,225,0.98),
+      0 0 30px rgba(202,228,225,0.42),
+      0 0 12px rgba(30,132,242,0.58),
+      0 0 22px rgba(30,132,242,0.84),
+      0 0 38px rgba(30,132,242,0.88),
+      0 0 60px rgba(30,132,242,1);
+  }
 }
