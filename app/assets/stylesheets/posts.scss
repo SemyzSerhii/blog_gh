@@ -2,8 +2,9 @@
 .dist_posts {
   display: flex;
   margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
 }
 
 
@@ -12,7 +13,7 @@
   font-size: 2em;
   text-align: center;
   background: #FFF5D7;
-  opacity: .7;
+  opacity: .9;
 }
 
 .form-control2 {
@@ -22,4 +23,9 @@
 .dist_posts_show {
   margin: 3%;
 
+}
+
+.photo {
+  text-align: -webkit-center;
+  height: 52.25%;
 }
