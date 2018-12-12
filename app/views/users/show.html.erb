@@ -1,15 +1,31 @@
-<div class="card mb-4 shadow-sm dist_posts_show" style="border-radius: 1.5rem; width: 500px; height: 500px" >
+<div class="card shadow-sm dist_posts_show" style="border-radius: 0;
+  margin: 0; margin-top: 16px; width: 100%; height: 335px; position: relative; " >
+  <div style="position: absolute; z-index: 1">
   <% if @user.cover.present? %>
     <%= image_tag @user.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
-      style: ' padding-left: 5%; padding-right: 5%; height: 420px; padding-top: 5%; border-radius: 1.5rem' %>
+      style: 'width: 200px; height: 200px; margin-left: 2rem; margin-top: 11rem' %>
+  <% else %>
+      <%= image_tag 'https://www.exactax.com/track/img/hr.png', alt: 'Image', class: 'card-img-top',
+        target: '_blank', style: 'width: 200px; height: 200px; margin-left: 2rem; margin-top: 11rem'%>
   <% end %>
-
-    <h2 class="card-text" style="text-align: center" ><%= @user.username %></h2>
-
-
-  <div class="btn-group">
-    <%= link_to t('views.user.show.links.my_posts'), posts_user_path(@user.posts), class:"btn btn-sm btn-outline-secondary",
-      style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px'%>
   </div>
+    <h2 class="card-text"
+        style="text-align: center; position: absolute; z-index: 1; margin-left: 16rem; margin-top: 14rem" >
+      <%= @user.username %>
+    </h2>
 </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: relative; box-shadow: 6px 12px 17px -7px #000000;">
+  <div class="collapse navbar-collapse" id="navbarNav" style=" margin-left: 400px; ">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to t('views.user.show.links.my_posts'), posts_user_path(@user.posts), class:"btn btn-sm btn-outline-secondary",
+          style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px'%>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('views.user.show.links.options'), posts_user_path(@user.posts), class:"btn btn-sm btn-outline-secondary",
+          style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px'%>
+      </li>
+    </ul>
+  </div>
+</nav>
 

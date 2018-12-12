@@ -47,6 +47,7 @@ en:
       show:
         links:
           my_posts: "News"
+          options:  "Options"
 
 
 
