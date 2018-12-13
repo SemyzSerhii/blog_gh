@@ -1,13 +1,24 @@
-<div class="card" style="width: 30rem; border-radius: 1.5rem">
+<div class="card"
+     style="width: 20rem; border-radius: 1rem; position: relative;
+       height: 25rem; margin-top: 7rem; margin-left: 6rem; margin-right: 3rem; box-shadow: 34px 32px 39px -33px #000000;">
+  <div style="position: absolute; z-index: 1">
   <% if user.cover.present? %>
     <%= image_tag user.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
-      style: ' padding-left: 5%; padding-right: 5%; height: 420px; padding-top: 5%; border-radius: 1.5rem' %>
+      style: 'width: 200px; height: 200px; border-radius: 100%;
+      margin-left:3.5rem; margin-top:-5rem; border: 5px  solid white; box-shadow: 1.5px 12px 17px -7px #000000;' %>
+      <%else %>
+      <%= image_tag 'https://www.exactax.com/track/img/hr.png', alt: 'Image', class: 'card-img-top',
+        target: '_blank', style: 'width: 200px;  border-radius: 100%;
+        height: 200px; margin-left:3.5rem;
+        margin-top:-5rem;border: 5px  solid white; box-shadow: 1.5px 12px 17px -7px #000000;' %>
   <% end %>
+  </div>
   <div class="card-body">
-    <h5 class="card-title"><%= user.username %></h5>
+    <h5 class="card-title " style="text-align: center; margin-top: 10rem"><%= user.username %></h5>
   </div>
   <div class="btn-group">
-    <%= link_to t('views.post._post.links.open'),  user_path(user), class:"btn btn-sm btn-outline-secondary", style: 'color:black; border-radius: 1rem'%>
+    <%= link_to t('views.post._post.links.open'),  user_path(user), class:"btn btn-sm btn-outline-secondary",
+      style: 'color:black; border-radius: 1rem; margin-left: 8rem'%>
   </div>
 </div>
 
