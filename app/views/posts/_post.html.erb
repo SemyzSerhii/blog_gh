@@ -1,29 +1,36 @@
 <div class="dist_posts raz photo"
-     style="border-radius:1.25rem; width: 40rem; height: 20rem; float: left;
-       box-shadow: 9px 12px 42px 7px #000000; flex-direction: column; word-wrap: break-word;
-       margin-left: 25rem; margin-right: 25rem">
-    <div class="photo">
+     style="border-radius:0.25rem; width: 40rem; height: 20rem; float: left;
+       box-shadow: 9px 12px 42px 7px #000000; flex-direction: column;
+       margin-left: 25rem; margin-right: 22rem">
+  <a href="<%= post_path(post) %>">
+    <div class="photo" style="position: relative;">
       <% if post.cover.present? %>
-        <%= image_tag post.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
-          style: 'width: 100%; height: 192%; border-top-left-radius: 1.25rem;
-      border-top-right-radius: 1.25rem; border-bottom-left-radius: 1.25rem; border-bottom-right-radius: 1.25rem' %>
+        <%= image_tag post.cover.url.url, alt: 'Image', class: 'card-img-top photo_post', target: '_blank'%>
       <% else %>
-        <%= image_tag 'https://ae01.alicdn.com/kf/HTB1zNW9OFXXXXamaXXXq6xXFXXXw/228344903/HTB1zNW9OFXXXXamaXXXq6xXFXXXw.jpg',
-          alt: 'Image', class: 'card-img-top', target: '_blank',
-          style: 'width: 100%; height: 192%; border-top-left-radius: 1.25rem;
-      border-top-right-radius: 1.25rem; border-bottom-left-radius: 1.25rem; border-bottom-right-radius: 1.25rem' %>
+        <%= image_tag 'https://png.pngtree.com/thumb_back/fw800/back_pic/04/60/75/35586d07a8ef5a6.jpg',
+          alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
       <% end %>
+      <h2 class="card-text" style="font-size: 1rem; height: 112px;  width: 100%;
+        color: white; position: absolute; z-index: 1; padding: 40px; margin-top: -12.5rem; text-align: left">
+        <%= post.title[0..100] %>
+      </h2>
     </div>
-  <div class="card-body">
-    <h2 class="card-text" style="font-size: 1.25rem; height: 112px; color: white"><%= post.title[0..150] %></h2>
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="btn-group">
-        <%= link_to t('views.post._post.links.open'), post, class:"btn btn-sm btn-outline-secondary",
-          style: 'color:white; border-color: white; border-radius: 1rem'%>
-      </div>
-      <p class="card-text" style="font-size: 1.25rem;  text-align: right; padding-right: 1rem; color: white">
-        <%= post.user.username %>
-      </p>
+  </a>
+  <div class="card-body" style="padding-top: 0.5rem">
+    <div  style="position: absolute; z-index: 1;">
+    <% if post.user.cover.present? %>
+      <%= image_tag post.user.cover.url.url, alt: 'Image', class: 'photo_user', target: '_blank' %>
+    <% else %>
+      <%= image_tag 'https://www.exactax.com/track/img/hr.png', alt: 'Image', class: 'photo_user',
+        target: '_blank'%>
+    <% end %>
     </div>
+    <p class="card-text" style="font-size: 1.25rem;  text-align: left; padding-left: 3rem; color: black; margin-bottom: 0.5rem">
+      <%= post.user.username %>
+    </p>
+    <p class="card-text" style="font-size: 1rem; height: 100%;  width: 100%;
+      color: black; text-align: left">
+      <%= post.body[0..100] %>... <%= link_to 'read more', post, style: 'text-decoration: none' %>
+    </p>
   </div>
 </div>
