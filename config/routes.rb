@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get :users, to: 'users#index'
 
   resources :users, except: :index do
+    resources :posts, only: :index
     member do
-      get 'posts'
       get 'comments'
     end
   end

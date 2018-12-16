@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all
+    @posts =
+      if params[:user_id].present?
+        Post.where(user_id: params[:user_id])
+      else
+        Post.all
+      end
   end
 
   def show; end
