@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_action :find_comment, only: %i[ destroy ]
 
   def create
-     @comment = Comment.create(comments_params)
+    @comment = Comment.create(comments_params)
+    respond_to :js
   end
 
   def destroy

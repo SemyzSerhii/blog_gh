@@ -1,4 +1,4 @@
-<div class="container " style=" padding: 0">
+<div class="container " style=" padding: 0" id="create_comment">
   <%= form_with url: user_post_comments_path(current_user, post) do |f| %>
     <div class="form-group">
       <%= f.text_area :body, size: '200x12', required: true, class: 'form-control raz',
