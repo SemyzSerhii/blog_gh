@@ -1,12 +1,8 @@
 <div class="container " style=" padding: 0">
-  <%= form_for Comment.new do |f| %>
+  <%= form_with url: user_post_comments_path(current_user, post) do |f| %>
     <div class="form-group">
       <%= f.text_area :body, size: '200x12', required: true, class: 'form-control raz',
         style: ' width: 100%; border: 5px  solid grey; text-align: left; color: black' %>
-      <small id="bodyHelp" class="form-text text-danger">
-        <%= Comment.new .errors[:body].join(', ') %>
-      </small>
-      <%= f.hidden_field :post_id, value: @post.id %>
       <%= f.submit t('views.post.show.links.add_comment'), class: 'btn btn-success', style: 'border-radius: 1rem'%>
   <%end %>
   </div>

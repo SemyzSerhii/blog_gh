@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :find_comment, only: %i[ destroy ]
 
   def create
-      current_user.comments.create(comments_params)
+     @comment = Comment.create(comments_params)
   end
 
   def destroy
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def comments_params
-    params.require(:comment).permit(:body, :post_id)
+    params.permit(:body, :post_id, :user_id)
   end
 end
 
