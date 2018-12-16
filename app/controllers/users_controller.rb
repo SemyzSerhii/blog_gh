@@ -30,6 +30,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update_attributes(users_params)
+      redirect_to @user, notice: t('controllers.post.update.success')
+    else
+      render :edit
+    end
+  end
+
   private
 
   def find_user
