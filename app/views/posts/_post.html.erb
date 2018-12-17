@@ -22,7 +22,7 @@
     <% if post.user.cover.present? %>
        <%= image_tag post.user.cover.url.url, alt: 'Image', class: 'photo_user', target: '_blank' %>
     <% else %>
-      <%= image_tag 'avatar user.png', alt: 'Image', class: 'photo_user',
+      <%= image_tag 'avatar_user.png', alt: 'Image', class: 'photo_user',
         target: '_blank'%>
     <% end %>
     </div>
