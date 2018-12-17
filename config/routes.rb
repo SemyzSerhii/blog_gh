@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
-
+  resources :password_resets
   resources :posts
   resources :sessions, except: %i[destroy index]
   get :log_out, to: 'sessions#destroy'
