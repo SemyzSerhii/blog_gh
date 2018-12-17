@@ -15,6 +15,6 @@
  */
 
 body {
-  background-image: url('white_wall.jpg');
+  background-image: url(white_wall.jpg);
   background-attachment: fixed;
 }
