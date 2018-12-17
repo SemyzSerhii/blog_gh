@@ -1,5 +1,5 @@
 <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
-<div class="form-group">
+<div class="form-group" style="margin-top: 17rem; margin-left: 30rem">
   <div class="col-md-6">
     <%= f.label :password, class: "but_password_save" %><br />
     <%= f.password_field :password, required: true, class: "form-control",  placeholder: "Enter Your Password"  %>
