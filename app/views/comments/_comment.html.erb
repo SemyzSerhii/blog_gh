@@ -1,6 +1,15 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4"><%= comment.user.username %></h1>
-    <p class="lead"><%= comment.body %></p>
+<div style="margin: 2rem; border: 1px solid gray; border-radius: 2.5rem; padding: 1rem; background-color: #f9f9f9;
+  box-shadow: 1.5px 9px 17px -7px #000000">
+  <div style="height: 40px; ">
+    <% if comment.user.cover.present? %>
+      <%= image_tag comment.user.cover.url.url, alt: 'Image', class: 'comment_avatar', target: '_blank',  style: 'float: left' %>
+    <% else %>
+      <%= image_tag 'avatar user.png', alt: 'Image', class: 'comment_avatar',
+        target: '_blank', style: 'float: left'%>
+    <% end %>
+    <p class="card-text" style="color: gray; float: left; font-size: 1.5rem" >
+      <%= comment.user.username %>
+    </p>
   </div>
+  <p  class="card-text " style="text-align:left; font-size: 1rem"><%= comment.body %></p>
 </div>
