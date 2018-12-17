@@ -3,14 +3,14 @@
     <%= image_tag @post.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
       style: 'height: 720px' %>
   <% else %>
-    <%= image_tag 'standart post image.jpg',
+    <%= image_tag 'standart_post_image.jpg',
       alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
   <% end %>
   <div class="open_post_user">
     <% if @post.user.cover.present? %>
       <%= image_tag @post.user.cover.url.url, alt: 'Image', class: 'photo_user', target: '_blank',  style: 'float: left' %>
     <% else %>
-      <%= image_tag 'avatar user.png', alt: 'Image', class: 'photo_user',
+      <%= image_tag 'avatar_user.png', alt: 'Image', class: 'photo_user',
         target: '_blank', style: 'float: left'%>
     <% end %>
     <p class="card-text" style="margin-top: -1.25rem; margin-right: 12.5rem" >
@@ -41,7 +41,7 @@
       <% if @post.user.cover.present? %>
         <%= image_tag @post.user.cover.url.url, alt: 'Image', class: 'comment_avatar', target: '_blank',  style: 'float: left' %>
       <% else %>
-        <%= image_tag 'avatar user.png', alt: 'Image', class: 'comment_avatar',
+        <%= image_tag 'avatar_user.png', alt: 'Image', class: 'comment_avatar',
           target: '_blank', style: 'float: left'%>
       <% end %>
       <p class="card-text" style="margin-right: 12.5rem; color: gray; float: left; font-size: 1.5rem" >

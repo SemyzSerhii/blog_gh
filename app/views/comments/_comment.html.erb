@@ -4,7 +4,7 @@
     <% if comment.user.cover.present? %>
       <%= image_tag comment.user.cover.url.url, alt: 'Image', class: 'comment_avatar', target: '_blank',  style: 'float: left' %>
     <% else %>
-      <%= image_tag 'avatar user.png', alt: 'Image', class: 'comment_avatar',
+      <%= image_tag 'avatar_user.png', alt: 'Image', class: 'comment_avatar',
         target: '_blank', style: 'float: left'%>
     <% end %>
     <p class="card-text" style="color: gray; float: left; font-size: 1.5rem" >
