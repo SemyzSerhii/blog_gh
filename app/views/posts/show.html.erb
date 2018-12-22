@@ -36,6 +36,7 @@
       </div>
     </div>
   </div>
+  <a name="comment"></a>
   <div style="padding: 1rem; border-bottom: 1px solid gray; margin: 2rem ">
     <div style=" margin-bottom: 3rem">
       <% if @post.user.cover.present? %>
@@ -50,7 +51,8 @@
     </div>
     <%= render 'comments/form', post: @post%>
   </div>
-<div id="comments">
-  <%= render @post.comments%>
+  <div id="comments">
+    <%= render @post.comments%>
+  </div>
 </div>
-</div>
+

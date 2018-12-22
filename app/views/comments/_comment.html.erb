@@ -2,7 +2,8 @@
   box-shadow: 1.5px 9px 17px -7px #000000">
   <div style="height: 40px; ">
     <% if comment.user.cover.present? %>
-      <%= image_tag comment.user.cover.url.url, alt: 'Image', class: 'comment_avatar', target: '_blank',  style: 'float: left' %>
+      <%= image_tag comment.user.cover.url.url, alt: 'Image', class: 'comment_avatar',
+        target: '_blank',  style: 'float: left' %>
     <% else %>
       <%= image_tag 'avatar_user.png', alt: 'Image', class: 'comment_avatar',
         target: '_blank', style: 'float: left'%>

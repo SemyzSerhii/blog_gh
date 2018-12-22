@@ -2,16 +2,16 @@
      style="width: 20rem; border-radius: 1rem; position: relative;
        height: 25rem; margin-top: 7rem; margin-left: 6rem; margin-right: 3rem; box-shadow: 34px 32px 39px -33px #000000;">
   <div style="position: absolute; z-index: 1">
-  <% if user.cover.present? %>
-    <%= image_tag user.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
-      style: 'width: 200px; height: 200px; border-radius: 100%;
+    <% if user.cover.present? %>
+      <%= image_tag user.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
+        style: 'width: 200px; height: 200px; border-radius: 100%;
       margin-left:3.5rem; margin-top:-5rem; border: 5px  solid white; box-shadow: 1.5px 12px 17px -7px #000000;' %>
-      <%else %>
+    <%else %>
       <%= image_tag 'avatar_user.png', alt: 'Image', class: 'card-img-top',
         target: '_blank', style: 'width: 200px;  border-radius: 100%;
         height: 200px; margin-left:3.5rem;
         margin-top:-5rem;border: 5px  solid white; box-shadow: 1.5px 12px 17px -7px #000000;' %>
-  <% end %>
+    <% end %>
   </div>
   <div class="card-body">
     <h5 class="card-title " style="text-align: center; margin-top: 10rem"><%= user.username %></h5>
@@ -21,4 +21,5 @@
       style: 'color:black; border-radius: 1rem; margin-left: 8rem; background-color: #f9f9f9'%>
   </div>
 </div>
+
 

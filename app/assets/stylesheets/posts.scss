@@ -69,3 +69,12 @@ color: white;
   height: 40px;
   border-radius: 100%;
 }
+
+.comments {
+  font-size: 27px;
+  color: gray;
+  position: absolute;
+  z-index: 1;
+  margin-left: -300px;
+  margin-top: 2px;
+}

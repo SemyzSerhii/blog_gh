@@ -1,25 +1,26 @@
 <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
-<div class="form-group" style="margin-top: 17rem; margin-left: 30rem">
-  <div class="col-md-6">
-    <%= f.label :password, class: "but_password_save" %><br />
-    <%= f.password_field :password, required: true, class: "form-control",  placeholder: "Enter Your Password"  %>
-    <small id="titleHelp" class="form-text text-danger">
-      <%= @user.errors[:password].join(', ') %>
-    </small>
+  <div class="form-group" style="margin-top: 17rem; margin-left: 30rem">
+    <div class="col-md-6">
+      <%= f.label :password, class: "but_password_save" %><br />
+      <%= f.password_field :password, required: true, class: "form-control",  placeholder: "Enter Your Password"  %>
+      <small id="titleHelp" class="form-text text-danger">
+        <%= @user.errors[:password].join(', ') %>
+      </small>
+    </div>
   </div>
-</div>
 
   <%= hidden_field_tag :email, @user.email %>
 
-<div class="form-group">
-  <div class="col-md-6">
-    <%= f.label :password_confirmation, class: "but_user_save_password2"  %><br/>
-    <%= f.password_field :password_confirmation , required: true, class: "form-control",  placeholder: "Confirm Your Password"%>
-    <small id="titleHelp" class="form-text text-danger">
-      <%= @user.errors[:password_confirmation].join(', ') %>
-    </small>
+  <div class="form-group">
+    <div class="col-md-6">
+      <%= f.label :password_confirmation, class: "but_user_save_password2"  %><br/>
+      <%= f.password_field :password_confirmation , required: true, class: "form-control",
+        placeholder: "Confirm Your Password"%>
+      <small id="titleHelp" class="form-text text-danger">
+        <%= @user.errors[:password_confirmation].join(', ') %>
+      </small>
+    </div>
   </div>
-</div>
   <div class="but_data_save">
     <%= f.submit t('views.post._form.submit.save'), class: 'btn btn-success' %>
   </div>

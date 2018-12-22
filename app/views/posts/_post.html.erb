@@ -10,29 +10,31 @@
         <%= image_tag 'standart_post_image.jpg',
           alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
       <% end %>
-      <h2 class="card-text" style="font-size: 1rem; height: 112px;  width: 100%;
+      <h2 class="card-text" style="font-size: 1.5rem; height: 112px;  width: 100%;
         color: white; position: absolute; z-index: 1; padding: 40px; margin-top: -12.5rem; text-align: left">
         <%= post.title[0..100] %>
       </h2>
     </div>
   </a>
-  <div class="card-body" style="padding-top: 0.5rem">
-     <a href= "<%=  user_path(post.user) %>">
-    <div  style="position: absolute; z-index: 1;">
-    <% if post.user.cover.present? %>
-       <%= image_tag post.user.cover.url.url, alt: 'Image', class: 'photo_user', target: '_blank' %>
-    <% else %>
-      <%= image_tag 'avatar_user.png', alt: 'Image', class: 'photo_user',
-        target: '_blank'%>
-    <% end %>
-    </div>
-        </a>
+  <div class="card-body" style="padding-top: 0.5rem; padding-bottom: 2rem">
+    <a href= "<%=  user_path(post.user) %>">
+      <div  style="position: absolute; z-index: 1;">
+        <% if post.user.cover.present? %>
+          <%= image_tag post.user.cover.url.url, alt: 'Image', class: 'photo_user', target: '_blank' %>
+        <% else %>
+          <%= image_tag 'avatar_user.png', alt: 'Image', class: 'photo_user',
+            target: '_blank'%>
+        <% end %>
+      </div>
+    </a>
     <p class="card-text" style="font-size: 1.25rem;  text-align: left; padding-left: 3rem; color: black; margin-bottom: 0.5rem">
       <%= link_to post.user.username, user_path(post.user), style: 'text-decoration: none' %>
     </p>
-    <p class="card-text" style="font-size: 1rem; height: 100%;  width: 100%;
+    <p class="card-text" style="font-size: 0.8rem; height: 100%;  width: 100%;
       color: black; text-align: left">
-      <%= post.body[0..100] %>... <%= link_to 'read more', post, style: 'text-decoration: none' %>
+      <%= post.body[0..80] %>... <%= link_to 'read more', post, style: 'text-decoration: none' %>
     </p>
+    <a href="<%=post_path(post) %>/#comment"><i class="fas fa-comment comments"></i></a>
   </div>
 </div>
+
