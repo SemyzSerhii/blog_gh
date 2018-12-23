@@ -1,4 +1,4 @@
-<div class="container " style="padding-left: 23rem; margin-top: 10rem">
+<div class="container " style="padding-left: 10rem; padding-right: 10rem; margin-top: 10rem">
   <%= form_for @post do |f| %>
     <div>
       <%= f.fields_for :cover, @post.cover || @post.build_cover do |ff| %>
@@ -12,24 +12,26 @@
       <div>
         <%= f.label :link_video, 'Link video from youtube:' %>
         <%= f.text_field :link_video, class: 'form-control raz',
-          style: 'border-radius: 1rem; width: 50%; text-align: left'%>
+          style: 'border-radius: 1rem; text-align: left'%>
       </div>
       <div class="form-group">
         <%= f.label :title, 'News headline' %>
-        <%= f.text_field :title, required: true, class: 'form-control raz',
-          style: 'border-radius: 1rem; width: 50%; text-align: left' %>
+        <%= f.text_field :title , required: true, class: 'form-control raz',
+          style: 'border-radius: 1rem; text-align: left' %>
         <small id="titleHelp" class="form-text text-danger">
           <%= @post.errors[:title].join(', ') %>
         </small>
       </div>
       <div class="form-group">
         <%= f.label :body, 'News text' %>
-        <%= f.text_area :body, size: '60x12', required: true, class: 'form-control raz',
-          style: 'border-radius: 1rem; width: 50%; text-align: left' %>
+        <%= f.trix_editor :body, size: '60x12', required: true, class: 'form-control raz',
+          style: 'border-radius: 1rem; width: 50%; text-align: left; border: black' %>
         <small id="bodyHelp" class="form-text text-danger">
           <%= @post.errors[:body].join(', ') %>
         </small>
-        <%= f.submit t('views.post._form.submit.save'), class: 'btn btn-success', style: 'border-radius: 1rem'%>
+        <%= f.submit t('views.post._form.submit.save'), class: 'btn btn-sm btn-outline-secondary',
+          style: 'border-radius: 1rem; position: relative;
+          border: 1px solid black; background-color: #f9f9f9; color: black'%>
   <%end %>
   </div>
 </div>
