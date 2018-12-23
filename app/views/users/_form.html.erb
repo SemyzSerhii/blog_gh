@@ -2,7 +2,7 @@
   <h1 class="sign_up"> Sign Up</h1>
   <%= form_for @user do |f| %>
     <div>
-      <%= f.fields_for :cover, @user.build_cover do |ff| %>
+      <%= f.fields_for :cover, @user.cover || @user.build_cover do |ff| %>
         <%= ff.label :url, 'Image' %>
         <%= ff.file_field :url %>
         <small id="bodyHelp" class="form-text text-danger">
@@ -51,3 +51,4 @@
     </div>
   <% end %>
 </div>
+
