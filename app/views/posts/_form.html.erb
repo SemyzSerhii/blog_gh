@@ -10,10 +10,12 @@
         </small>
       <% end %>
       <div>
-        <%= f.text_field :link_video, class: 'form-control', placeholder: 'Link video from youtube:' %>
+        <%= f.label :link_video, 'Link video from youtube:' %>
+        <%= f.text_field :link_video, class: 'form-control raz',
+          style: 'border-radius: 1rem; width: 50%; text-align: left'%>
       </div>
       <div class="form-group">
-        <%= f.label :title %>
+        <%= f.label :title, 'News headline' %>
         <%= f.text_field :title, required: true, class: 'form-control raz',
           style: 'border-radius: 1rem; width: 50%; text-align: left' %>
         <small id="titleHelp" class="form-text text-danger">
@@ -21,7 +23,7 @@
         </small>
       </div>
       <div class="form-group">
-        <%= f.label :body %>
+        <%= f.label :body, 'News text' %>
         <%= f.text_area :body, size: '60x12', required: true, class: 'form-control raz',
           style: 'border-radius: 1rem; width: 50%; text-align: left' %>
         <small id="bodyHelp" class="form-text text-danger">
