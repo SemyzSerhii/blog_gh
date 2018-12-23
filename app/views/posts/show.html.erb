@@ -1,11 +1,4 @@
 <div class="card shadow-sm raz dist_posts_show" style="border-radius: 0.25rem" >
-  <% if @post.cover.present? %>
-    <%= image_tag @post.cover.url.url, alt: 'Image', class: 'card-img-top', target: '_blank',
-      style: 'height: 720px' %>
-  <% else %>
-    <%= image_tag 'standart_post_image.jpg',
-      alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
-  <% end %>
   <div class="open_post_user">
     <% if @post.user.cover.present? %>
       <%= image_tag @post.user.cover.url.url, alt: 'Image', class: 'photo_user', target: '_blank',  style: 'float: left' %>
@@ -20,6 +13,8 @@
   <h2 class="card-text open_post_title">
     <%= @post.title %>
   </h2>
+        <iframe width="500" height="310" src="<%= @post.link_video%>"
+          frameborder="0" allowfullscreen></iframe>
   <div class="card-body" style="padding-left: 2rem; padding-right: 2rem">
     <p class="card-text" style="font-size: 1rem; text-align: left; padding-top: 1.5rem; padding-bottom: 1.5rem">
       <%= @post.body %>

@@ -9,6 +9,9 @@
           <%= @post.errors['cover.url'].join(', ') %>
         </small>
       <% end %>
+      <div>
+        <%= f.text_field :link_video, class: 'form-control', placeholder: 'Link video from youtube:' %>
+      </div>
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, required: true, class: 'form-control raz',

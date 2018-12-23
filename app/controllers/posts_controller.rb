@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   def posts_params
     params.require(:post).permit(
-      :title, :body, cover_attributes: %i[id url]
+      :title, :body, :link_video, cover_attributes: %i[id url]
     )
   end
 end

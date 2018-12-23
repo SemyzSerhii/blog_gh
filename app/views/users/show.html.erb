@@ -26,10 +26,12 @@
         <%= link_to t('views.user.show.links.my_posts'), user_posts_path(@user), class:"btn btn-sm btn-outline-secondary",
           style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px; background-color: #f9f9f9'%>
       </li>
-      <li class="nav-item">
-        <%= link_to t('views.user.show.links.options'), edit_user_path(@user), class:"btn btn-sm btn-outline-secondary",
-          style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px; background-color: #f9f9f9;'%>
-      </li>
+      <% if user_signed_in? && @user == current_user%>
+        <li class="nav-item">
+          <%= link_to t('views.user.show.links.options'), edit_user_path(@user), class:"btn btn-sm btn-outline-secondary",
+            style: 'color:black; border-radius: 1rem; margin-left: 10px; margin-bottom: 5px'%>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
