@@ -1,23 +1,14 @@
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
+  before_action :posts_all, only: %i[index draft]
 
   def index
-    @posts =
-      if params[:user_id].present?
-        Post.where(user_id: params[:user_id])
-      else
-        Post.all
+    if params[:search]
+      @posts = Post.search(params[:search]).order(created_at: :desc)
       end
   end
 
-  def draft
-    @posts =
-      if params[:user_id].present?
-        Post.where(user_id: params[:user_id])
-      else
-        Post.all
-      end
-  end
+  def draft; end
 
   def show; end
   def new
@@ -61,6 +52,15 @@ class PostsController < ApplicationController
     params.require(:post).permit(
       :title, :body, :link_video, :published, :likes_count, cover_attributes: %i[id url]
     )
+  end
+
+  def posts_all
+    @posts =
+      if params[:user_id].present?
+        Post.where(user_id: params[:user_id])
+      else
+        Post.all
+      end
   end
 end
 
