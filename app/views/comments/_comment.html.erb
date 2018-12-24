@@ -13,4 +13,11 @@
     </p>
   </div>
   <p  class="card-text " style="text-align:left; font-size: 1rem"><%= comment.body %></p>
+  <% if user_signed_in? %>
+    <div  id="likes" class="btn-group" style="position: relative; left: 30rem ">
+      <%= link_to user_post_comment_likes_path(current_user, @post, comment), method: :comment, class: 'edit', remote: true do %>
+        <i id="like" class="fas fa-heart"><%= comment.likes_count %></i>
+      <%end %>
+    </div>
+  <%end %>
 </div>

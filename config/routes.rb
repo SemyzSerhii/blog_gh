@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :posts, only: :index do
-      resources :comments
+      resources :likes
+      resources :comments do
+        resources :likes
+      end
     end
   end
   resources :password_resets

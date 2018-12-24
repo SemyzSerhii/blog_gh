@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181223202528) do
+ActiveRecord::Schema.define(version: 20181224111324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20181223202528) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "post_id"
+    t.integer "likes_count"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -36,6 +37,17 @@ ActiveRecord::Schema.define(version: 20181223202528) do
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -44,6 +56,7 @@ ActiveRecord::Schema.define(version: 20181223202528) do
     t.bigint "user_id"
     t.string "link_video"
     t.boolean "published", default: false
+    t.integer "likes_count"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -61,5 +74,8 @@ ActiveRecord::Schema.define(version: 20181223202528) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "users"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
 end

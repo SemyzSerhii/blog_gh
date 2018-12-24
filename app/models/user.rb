@@ -2,6 +2,7 @@ class User < ApplicationRecord
   attr_accessor :password, :remember_token, :activation_token, :reset_token
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes
 
   has_one :cover, as: :imageable, class_name: 'Image', dependent: :destroy
   accepts_nested_attributes_for :cover

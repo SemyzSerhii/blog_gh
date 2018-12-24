@@ -76,7 +76,7 @@ color: white;
   position: absolute;
   z-index: 1;
   margin-top: 2.5rem;
-  margin-left: -18.5rem;
+  margin-left: -15.5rem;
 }
 
 .trix-button-row {
@@ -98,4 +98,17 @@ color: white;
 .trix-content {
   max-height: 800px !important;
   overflow-y: auto;
+}
+
+.likes {
+  font-size: 27px;
+  color: gray;
+  position: absolute;
+  z-index: 1;
+  margin-top: 2.5rem;
+  margin-left: -18.5rem;
+}
+
+.likes:before {
+  color: red;
 }

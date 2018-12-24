@@ -39,6 +39,13 @@
             style: 'color:black; border-radius: 1rem; background-color: #f9f9f9'%>
         <%end %>
       </div>
+        <% if user_signed_in? %>
+          <div  id="likes" class="btn-group" style="position: relative; left: -63rem ">
+            <%= link_to user_post_likes_path(current_user, @post), method: :post, class: 'edit', remote: true do %>
+              <i id="like" class="fas fa-heart"><%= @post.likes_count %></i>
+            <%end %>
+          </div>
+        <%end %>
     </div>
   </div>
   <a name="comment"></a>
