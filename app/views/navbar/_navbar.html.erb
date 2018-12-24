@@ -20,6 +20,13 @@
       </span>
       </div>
     </li>
+    <li class="nav-item">
+      <div class="foo">
+      <span class="letter" data-letter="GitHub" style="width: 76px" onclick="location.href= 'https://github.com/SemyzSerhii/blog_gh'">
+      <%= link_to 'GitHub', 'https://github.com/SemyzSerhii/blog_gh', style: ' text-decoration: none' %>
+      </span>
+      </div>
+    </li>
     <% if user_signed_in? %>
       <li class="nav-item">
         <div class="foo">
@@ -29,7 +36,7 @@
         </div>
       </li>
     <% end %>
-    <form class="form-inline mt-2 mt-md-0" style="margin-left: 19rem">
+    <form class="form-inline mt-2 mt-md-0" style="margin-left: 15rem">
       <%= form_for(posts_path, method: :get, id: 'search-form') do %>
         <%= text_field_tag :search, params[:search], placeholder: 'Search', class: 'orm-control mr-sm-2',
           required: true, 'aria-label': 'Search', style: 'border-radius: 0.5rem' %>
