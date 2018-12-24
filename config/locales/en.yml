@@ -46,8 +46,9 @@ en:
     user:
       show:
         links:
-          my_posts: "News"
+          my_posts: "Publish news"
           options:  "Options"
+          my_draft: "Draft"
 
 
 

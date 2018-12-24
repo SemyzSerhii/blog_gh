@@ -26,9 +26,9 @@
               frameborder="0" allowfullscreen>
       </iframe>
     <%end %>
-    <p class="card-text" style="font-size: 1rem; text-align: left; padding-top: 1.5rem; padding-bottom: 1.5rem">
-      <%= @post.body %>
-    </p>
+    <div class="card-text" style="font-size: 1rem; text-align: left; padding-top: 1.5rem; padding-bottom: 1.5rem">
+      <%= @post.body.html_safe %>
+    </div>
     <div class="d-flex justify-content-between align-items-center" style="border-top: 1px solid gray;
       border-bottom: 1px solid gray; padding-bottom: 5px; padding-top: 5px">
       <div class="btn-group" style="position: relative; left: 60rem ">
@@ -60,4 +60,3 @@
     <%= render @post.comments%>
   </div>
 </div>
-

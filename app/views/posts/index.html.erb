@@ -1,2 +1,7 @@
-<%= render @posts %>
-
+<% @posts.each do |post|  %>
+  <% if post.published  %>
+    <div>
+      <%= render post %>
+    </div>
+  <% end %>
+<% end %>

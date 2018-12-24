@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :posts
   resources :sessions, except: %i[destroy index]
   get :log_out, to: 'sessions#destroy'
+  get :draft, to: 'posts#draft'
 end

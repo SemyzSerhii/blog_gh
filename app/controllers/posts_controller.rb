@@ -10,8 +10,16 @@ class PostsController < ApplicationController
       end
   end
 
-  def show; end
+  def draft
+    @posts =
+      if params[:user_id].present?
+        Post.where(user_id: params[:user_id])
+      else
+        Post.all
+      end
+  end
 
+  def show; end
   def new
     @post = Post.new
   end
@@ -51,7 +59,8 @@ class PostsController < ApplicationController
 
   def posts_params
     params.require(:post).permit(
-      :title, :body, :link_video, cover_attributes: %i[id url]
+      :title, :body, :link_video, :published, cover_attributes: %i[id url]
     )
   end
 end
+

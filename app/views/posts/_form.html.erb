@@ -1,4 +1,4 @@
-<div class="container " style="padding-left: 10rem; padding-right: 10rem; margin-top: 10rem">
+<div class="container " style="padding-left: 10rem; padding-right: 10rem; margin-top: 5rem">
   <%= form_for @post do |f| %>
     <div>
       <%= f.fields_for :cover, @post.cover || @post.build_cover do |ff| %>
@@ -24,15 +24,20 @@
       </div>
       <div class="form-group">
         <%= f.label :body, 'News text' %>
-        <%= f.trix_editor :body, size: '60x12', required: true, class: 'form-control raz',
-          style: 'border-radius: 1rem; width: 50%; text-align: left; border: black' %>
+        <%= f.trix_editor :body,size: '60x12', required: true, class: 'form-control text raz',
+          style: 'border-radius: 1rem; width: 50%; text-align: left; border: black; overflow-y:auto' %>
         <small id="bodyHelp" class="form-text text-danger">
           <%= @post.errors[:body].join(', ') %>
         </small>
+        <div class="field">
+          <%= f.label :published %>
+          <%= f.check_box :published %>
+        </div>
         <%= f.submit t('views.post._form.submit.save'), class: 'btn btn-sm btn-outline-secondary',
           style: 'border-radius: 1rem; position: relative;
           border: 1px solid black; background-color: #f9f9f9; color: black'%>
   <%end %>
   </div>
 </div>
+
 

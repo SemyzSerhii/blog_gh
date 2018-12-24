@@ -1,0 +1,5 @@
+<% current_user.posts.each do |post|  %>
+  <% if post.published == false %>
+    <%= render post %>
+  <% end %>
+<% end %>
